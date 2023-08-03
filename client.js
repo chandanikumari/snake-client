@@ -24,7 +24,7 @@ const connect = function() {
   
   setTimeout(() => {
     // print the char here
-    conn.on("data", () => {
+    conn.on("connect", () => {
       conn.write("Move: up");
     });
   }, 50);
