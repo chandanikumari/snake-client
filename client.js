@@ -1,9 +1,10 @@
 const net = require("net");
+const { IP, PORT } = require("./constants");
 
 const connect = function() {
   const conn = net.createConnection({
-    host: '165.227.47.243',// IP address here,
-    port: '50541', // PORT number here,
+    host: IP,// IP address here,
+    port: PORT, // PORT number here,
   });
   conn.on("connect", () => {
     // code that does something when the connection is first established
@@ -20,6 +21,17 @@ const connect = function() {
   conn.on("connect", () => {
     conn.write("Name: SRI");
   });
+  
+  setTimeout(() => {
+    // print the char here
+    conn.on("data", () => {
+      conn.write("Move: up");
+    });
+  }, 50);
+
+  
+  
+
   return conn;
 };
 
